@@ -2,11 +2,11 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/users/signin', (req, res) => {
-    res.send('Iniciar sesion');
+    res.render('users/signin');
 });
 
 router.get('/users/signup', (req, res) => {
-    res.send('Registrate');
+    res.render('users/signup');
 });
 
 module.exports = router;

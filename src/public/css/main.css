@@ -47,3 +47,8 @@ span {
 .menu-h ul li:hover ul {
     background: gray;
 }
+
+/*        NAVBAR       */
+.navbar {
+    display: block;
+}

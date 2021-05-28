@@ -1,26 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diario Online</title>
-    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.min.js"></script>
-    <!-- CSS BOTSTRAP -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FONT OSWALD -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400&display=swap" rel="stylesheet">
     <!-- ICONOS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.css">
     <!-- FONT AWESOME -->
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css">
 </head>
-<body>
 
-    <p>Navegation</p>
+<body onload="startTime()">
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+            <div class="clockdate">
+                <span id="time"></span>
+                <span id="date"></span>
+            </div>
+            <!-- HORA & FECHA-->
+            <script>
+                function startTime() {
+                    var today = new Date(), hours = today.getHours(), minutes = today.getMinutes(),
+                        date = today.getDate(), day = today.getDay(), month = today.getMonth();
+
+                    hours = (hours == 0) ? 12 : hours;
+                    hours = (hours > 12) ? hours - 12 : hours;
+
+                    hours = checkTime(hours);
+                    minutes = checkTime(minutes);
+
+                    var dia = ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"],
+                        mes = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
+
+                    var hr = document.getElementById('time').innerHTML = hours + ":" + minutes,
+                        dt = document.getElementById('date').innerHTML = dia[day] + ", " + date + " De " + mes[month];
+
+                    var time = setTimeout(function () { startTime(); }, 500);
+                }
+
+                function checkTime(e) {
+                    if (e < 10) {
+                        e = "0" + e;
+                    }
+                    return e;
+                }
+            </script>
+
+            <a class="navbar-brand" href="#">
+                <img src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24"
+                    class="d-inline-block align-text-top">
+                Bootstrap
+            </a>
+        </div>
+    </nav>
 
     {{{ body }}}
 
     <p>Footer</p>
-    
+
 </body>
+
 </html>

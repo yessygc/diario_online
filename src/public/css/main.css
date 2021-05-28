@@ -1,4 +1,49 @@
 * {
     margin: 0;
     padding: 0;
+    --bg: #e5e5e5;
+    --shadowLg: #fff;
+    --shadow: rgba(13,39,80,.26);
+}
+
+body {
+    min-width: 100vh;
+    margin-top: 20px;
+    background: var(--bg);
+    overflow: hidden;
+}
+body, span:nth-child(1) {
+    display: flex;
+}
+span {
+    font-weight: 100;
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+}
+
+.menu-h {
+    max-width: 1000px;
+    min-height: 50px;
+    background: white;
+    margin: 0 auto;
+}
+.menu-h ul {
+    list-style: none;
+    display: flex;
+}
+.menu-h a {
+    color: black;
+    display: block;
+    padding: 20px;
+    text-decoration: none;
+    background: white;
+}
+.menu-h a:hover {
+    background: gray;
+}
+.menu-h ul ul {
+    display: none;
+}
+.menu-h ul li:hover ul {
+    background: gray;
 }
